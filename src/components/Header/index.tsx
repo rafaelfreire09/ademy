@@ -15,13 +15,21 @@ export default function Header() {
     router.push('/');
   };
 
+  const handleClickOnLogo = () => {
+    router.push('/');
+  };
+
   return (
     <S.Wrapper>
-      <S.Label>ADEMY</S.Label>
+      <S.Logo onClick={handleClickOnLogo}>ADEMY</S.Logo>
       {auth.accessToken ? (
         <S.AuthSection>
           <S.Profile />
-          <Button label="Logout" onClick={handleLogout} colorType='red'></Button>
+          <Button
+            label="Logout"
+            onClick={handleLogout}
+            colorType="red"
+          ></Button>
         </S.AuthSection>
       ) : (
         <Button label="Login" href="/auth"></Button>

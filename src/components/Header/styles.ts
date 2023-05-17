@@ -11,8 +11,12 @@ export const Wrapper = styled.div`
   border-bottom: 1px solid #dedede;
 `;
 
-export const Label = styled.div`
+export const Logo = styled.a`
   color: #000000;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 700;
 `;
 
 export const Profile = styled.img`
