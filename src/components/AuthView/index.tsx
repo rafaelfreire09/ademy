@@ -62,7 +62,7 @@ export default function AuthView() {
         width="100"
         onClick={handleLogin}
         submit={true}
-      ></Button>
+      />
     </S.Wrapper>
   );
 }

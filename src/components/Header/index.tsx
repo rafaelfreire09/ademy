@@ -32,7 +32,7 @@ export default function Header() {
           ></Button>
         </S.AuthSection>
       ) : (
-        <Button label="Login" href="/auth"></Button>
+        <Button label="Login" href="/auth"/>
       )}
     </S.Wrapper>
   );
