@@ -19,8 +19,12 @@ export default function EbookDashboardCard({
   author,
   slug,
 }: EbookDashboardCardProps) {
+  const handleClickCard = () => {
+    router.push('/profile/dashboard/' + slug);
+  };
+
   return (
-    <S.Wrapper>
+    <S.Wrapper onClick={handleClickCard}>
       <S.ImageWrapper>
         <S.Image>
           <Image src={image} fill alt={title} />
