@@ -32,6 +32,18 @@ const colorsType = {
       background-color: rgba(206, 44, 44, 0.83);
     }
   `,
+  green: css<Props>`
+    background-color: ${mainColors.success.normal};
+    border: 1px solid ${mainColors.success.normal};
+
+    a {
+      color: ${mainColors.white.normal};
+    }
+
+    &:hover {
+      background-color: rgba(34, 197, 94, 0.83);
+    }
+  `,
 };
 
 export type ButtonSize = keyof typeof colorsType;

@@ -1,13 +1,12 @@
 import Head from 'next/head';
-import { InferGetServerSidePropsType } from 'next';
-
 import Header from 'components/Header';
-import HomeView from 'components/HomeView';
-
+import EbookView from 'components/EbookView';
+import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 import { EbookList } from 'utils/data';
+import { Ebook } from 'types/types';
 
-export default function Home({
-  ebookList,
+export default function EbookSlug({
+  ebook,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <>
@@ -18,17 +17,21 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <HomeView ebookList={ebookList} />
+      <EbookView ebook={ebook} />
     </>
   );
 }
 
-export const getServerSideProps = async () => {
-  const getEbookList = EbookList;
+export const getServerSideProps = async ({
+  params,
+}: GetServerSidePropsContext) => {
+  const slug = params?.ebookSlug?.at(0);
+
+  const ebook = EbookList.filter((ebook) => ebook.slug == slug);
 
   return {
     props: {
-      ebookList: getEbookList,
+      ebook: ebook[0],
     },
   };
 };

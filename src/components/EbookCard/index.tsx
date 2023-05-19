@@ -29,14 +29,7 @@ export default function EbookCard({
     <S.Wrapper onClick={handleClickCard}>
       <S.ImageWrapper>
         <S.Image>
-          <Image
-            src={image}
-            fill
-            alt={title}
-            // style={{
-            //   objectFit: 'cover',
-            // }}
-          />
+          <Image src={image} fill alt={title} />
         </S.Image>
       </S.ImageWrapper>
       <S.Title>{title}</S.Title>

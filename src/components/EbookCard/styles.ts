@@ -30,6 +30,8 @@ export const Title = styled.div`
   font-size: 15px;
   font-weight: 500;
 
+  max-width: 220px;
+
   margin-top: 15px;
 `;
 
