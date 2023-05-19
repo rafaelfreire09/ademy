@@ -28,6 +28,7 @@ export const Profile = styled.img`
   border-radius: 25px;
 
   margin-right: 1rem;
+  cursor: pointer;
 `;
 
 export const AuthSection = styled.div`

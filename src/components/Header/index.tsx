@@ -19,12 +19,16 @@ export default function Header() {
     router.push('/');
   };
 
+  const handleClickOnProfile = () => {
+    router.push('/profile/dashboard');
+  };
+
   return (
     <S.Wrapper>
       <S.Logo onClick={handleClickOnLogo}>ADEMY</S.Logo>
       {auth.accessToken ? (
         <S.AuthSection>
-          <S.Profile />
+          <S.Profile onClick={handleClickOnProfile} />
           <Button
             label="Logout"
             onClick={handleLogout}
@@ -32,7 +36,7 @@ export default function Header() {
           ></Button>
         </S.AuthSection>
       ) : (
-        <Button label="Login" href="/auth"/>
+        <Button label="Login" href="/auth" />
       )}
     </S.Wrapper>
   );
