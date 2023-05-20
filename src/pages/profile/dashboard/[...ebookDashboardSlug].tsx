@@ -1,7 +1,9 @@
-import Head from 'next/head';
+import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
+
+import HeadNext from 'components/HeadNext';
 import Header from 'components/Header';
 import EbookDashboardView from 'components/EbookDashboardView';
-import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
+
 import { EbookList } from 'utils/data';
 
 export default function EbookDashboardSlug({
@@ -9,12 +11,7 @@ export default function EbookDashboardSlug({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <>
-      <Head>
-        <title>Ademy</title>
-        <meta name="description" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <HeadNext />
       <Header />
       <EbookDashboardView ebook={ebook} />
     </>
