@@ -33,4 +33,28 @@ export const Profile = styled.img`
 
 export const AuthSection = styled.div`
   display: flex;
+  align-items: center;
+`;
+
+export const Cart = styled.div`
+  margin: 0 17px 0 5px;
+  cursor: pointer;
+`;
+
+export const CartAmount = styled.div`
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  position: absolute;
+  margin: -13px 0 0 10px;
+
+  width: 20px;
+  height: 20px;
+  background-color: #1c1d1f;
+
+  font-size: 13px;
+  color: #ffffff;
+
+  border-radius: 20px;
 `;
