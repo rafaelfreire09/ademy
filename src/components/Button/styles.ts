@@ -12,7 +12,7 @@ const colorsType = {
     background-color: ${mainColors.white.normal};
     border: 1px solid ${mainColors.others.borderDark};
 
-    a {
+    span {
       color: ${mainColors.black.normal};
     }
 
@@ -24,7 +24,7 @@ const colorsType = {
     background-color: ${mainColors.error.normal};
     border: 1px solid ${mainColors.error.normal};
 
-    a {
+    span {
       color: ${mainColors.white.normal};
     }
 
@@ -36,7 +36,7 @@ const colorsType = {
     background-color: ${mainColors.success.normal};
     border: 1px solid ${mainColors.success.normal};
 
-    a {
+    span {
       color: ${mainColors.white.normal};
     }
 
@@ -60,9 +60,8 @@ export const Wrapper = styled.button<Props>`
 
   font-size: 15px;
   font-weight: 600;
-  text-transform: capitalize;
 
-  a {
+  span {
     text-decoration: none;
   }
 
@@ -71,4 +70,12 @@ export const Wrapper = styled.button<Props>`
   }
 
   ${({ colorType }) => colorsType[colorType]};
+
+  img {
+    padding: 5px;
+  }
+
+  img:hover {
+    opacity: 50%;
+  }
 `;

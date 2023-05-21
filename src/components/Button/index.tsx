@@ -1,5 +1,6 @@
-import Link from 'next/link';
 import * as S from './styles';
+
+import Image from 'next/image';
 
 export type ButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
   label?: string;
@@ -9,6 +10,7 @@ export type ButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
   submit?: boolean;
   colorType?: S.ButtonSize;
   onClick?: VoidFunction;
+  iconSrc?: string;
 };
 
 export default function Button({
@@ -19,6 +21,7 @@ export default function Button({
   label,
   href,
   onClick,
+  iconSrc,
   ...props
 }: ButtonProps) {
   const handleClick = () => {
@@ -26,8 +29,22 @@ export default function Button({
   };
 
   return (
-    <S.Wrapper width={width} height={height} onClick={handleClick} colorType={colorType}>
-      {!submit ? <Link href={href || '/'}>{label}</Link> : label}
+    <S.Wrapper
+      width={width}
+      height={height}
+      onClick={handleClick}
+      colorType={colorType}
+    >
+      {!iconSrc ? (
+        <span>{label}</span>
+      ) : (
+        <Image
+          src={iconSrc}
+          width={Number(width)}
+          height={Number(height)}
+          alt=""
+        />
+      )}
     </S.Wrapper>
   );
 }
