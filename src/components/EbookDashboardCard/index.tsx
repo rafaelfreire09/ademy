@@ -1,4 +1,4 @@
-import router from 'next/router';
+import { useRouter } from 'next/navigation';
 import * as S from './styles';
 
 import Image from 'next/image';
@@ -19,6 +19,8 @@ export default function EbookDashboardCard({
   author,
   slug,
 }: EbookDashboardCardProps) {
+  const router = useRouter();
+
   const handleClickCard = () => {
     router.push('/profile/dashboard/' + slug);
   };

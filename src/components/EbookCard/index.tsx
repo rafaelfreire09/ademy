@@ -1,7 +1,8 @@
-import router from 'next/router';
+import { useRouter } from 'next/navigation';
 import * as S from './styles';
 
 import Image from 'next/image';
+import { formatPrice } from 'utils/general';
 
 export type EbookCardProps = {
   id: number;
@@ -21,6 +22,8 @@ export default function EbookCard({
   description,
   slug,
 }: EbookCardProps) {
+  const router = useRouter();
+
   const handleClickCard = () => {
     router.push('/ebook/' + slug);
   };
@@ -34,7 +37,7 @@ export default function EbookCard({
       </S.ImageWrapper>
       <S.Title>{title}</S.Title>
       <S.Author>{author}</S.Author>
-      <S.Price>R${price}</S.Price>
+      <S.Price>{formatPrice(price)}</S.Price>
     </S.Wrapper>
   );
 }
