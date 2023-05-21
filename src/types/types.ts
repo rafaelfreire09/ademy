@@ -12,3 +12,12 @@ export type Ebook = {
   price: number;
   description: string;
 };
+
+export type EbookCart = {
+  id: number;
+  title: string;
+  slug: string;
+  image: string;
+  price: number;
+  quantity: number;
+};
