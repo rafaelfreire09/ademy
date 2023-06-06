@@ -6,12 +6,12 @@ import { useAppDispatch } from 'hooks/redux';
 
 import Button from 'components/Button';
 
-import { Ebook } from 'types/types';
+import { EbooksTypeAPI } from 'types/types';
 import { addToCart } from 'redux/cartSlice';
 import { formatPrice } from 'utils/general';
 
 export type EbookViewProps = {
-  ebook: Ebook;
+  ebook: EbooksTypeAPI | null;
 };
 
 export default function EbookView({ ebook }: EbookViewProps) {
@@ -22,11 +22,11 @@ export default function EbookView({ ebook }: EbookViewProps) {
   const handleClickOnBuy = () => {
     dispatch(
       addToCart({
-        id: ebook.id,
-        title: ebook.title,
-        slug: ebook.slug,
-        image: ebook.image,
-        price: ebook.price,
+        id: ebook?.EbookID || 0,
+        title: ebook?.Title || '',
+        slug: ebook?.Slug || '',
+        image: ebook?.Image || '',
+        price: ebook?.Price || 0,
         quantity: 1,
       })
     );
@@ -38,16 +38,16 @@ export default function EbookView({ ebook }: EbookViewProps) {
     <S.Wrapper>
       <S.ImageWrapper>
         <S.Image>
-          <Image src={ebook.image} fill alt={ebook.title} />
+          <Image src={ebook?.Image || ''} fill alt={ebook?.Title || ''} />
         </S.Image>
       </S.ImageWrapper>
       <S.Content>
-        <S.Title>{ebook.title}</S.Title>
-        <S.Author>{ebook.author}</S.Author>
-        <S.Description>{ebook.description}</S.Description>
+        <S.Title>{ebook?.Title}</S.Title>
+        <S.Author>{ebook?.Author}</S.Author>
+        <S.Description>{ebook?.Description}</S.Description>
       </S.Content>
       <S.CallToAction>
-        <S.Price>{formatPrice(ebook.price)}</S.Price>
+        <S.Price>{formatPrice(ebook?.Price || 0)}</S.Price>
         <Button
           width="85"
           height="50"

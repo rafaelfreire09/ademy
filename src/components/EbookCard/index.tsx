@@ -3,41 +3,31 @@ import * as S from './styles';
 
 import Image from 'next/image';
 import { formatPrice } from 'utils/general';
+import { EbooksTypeAPI } from 'types/types';
 
 export type EbookCardProps = {
-  id: number;
-  title: string;
-  image: string;
-  author: string;
-  price: number;
-  description: string;
-  slug: string;
+  ebook: EbooksTypeAPI | null
 };
 
 export default function EbookCard({
-  title,
-  image,
-  author,
-  price,
-  description,
-  slug,
+  ebook
 }: EbookCardProps) {
   const router = useRouter();
 
   const handleClickCard = () => {
-    router.push('/ebook/' + slug);
+    router.push('/ebook/' + ebook?.Slug);
   };
 
   return (
     <S.Wrapper onClick={handleClickCard}>
       <S.ImageWrapper>
         <S.Image>
-          <Image src={image} fill alt={title} />
+          <Image src={ebook?.Image || ''} fill alt={ebook?.Title || ''} />
         </S.Image>
       </S.ImageWrapper>
-      <S.Title>{title}</S.Title>
-      <S.Author>{author}</S.Author>
-      <S.Price>{formatPrice(price)}</S.Price>
+      <S.Title>{ebook?.Title}</S.Title>
+      <S.Author>{ebook?.Author}</S.Author>
+      <S.Price>{formatPrice(ebook?.Price || 0)}</S.Price>
     </S.Wrapper>
   );
 }

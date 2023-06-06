@@ -1,14 +1,19 @@
-import { InferGetServerSidePropsType } from 'next';
+import { GetServerSidePropsResult, InferGetServerSidePropsType } from 'next';
 
 import HeadNext from 'components/HeadNext';
 import Header from 'components/Header';
 import HomeView from 'components/HomeView';
 
-import { EbookList } from 'utils/data';
+import { GetFeaturedEbooks } from 'services/ebook';
+import { EbooksTypeAPI } from 'types/types';
+
+export type Props = {
+  ebookList: EbooksTypeAPI[] | null;
+};
 
 export default function Home({
   ebookList,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {  
   return (
     <>
       <HeadNext />
@@ -18,12 +23,11 @@ export default function Home({
   );
 }
 
-export const getServerSideProps = async () => {
-  const getEbookList = EbookList;
-
+export const getServerSideProps = async (): Promise<
+GetServerSidePropsResult<Props>> => {
   return {
     props: {
-      ebookList: getEbookList,
+      ebookList: await GetFeaturedEbooks(),
     },
   };
 };

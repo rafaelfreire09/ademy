@@ -7,10 +7,10 @@ import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-import { Ebook } from 'types/types';
+import { EbooksTypeAPI } from 'types/types';
 
 export type HomeViewProps = {
-  ebookList: Ebook[];
+  ebookList: EbooksTypeAPI[] | null;
 };
 
 export default function HomeView({ ebookList }: HomeViewProps) {
@@ -25,9 +25,9 @@ export default function HomeView({ ebookList }: HomeViewProps) {
         spaceBetween={60}
         navigation={true}
       >
-        {ebookList.map((ebook) => (
-          <SwiperSlide key={ebook.id} tag="li">
-            <EbookCard {...ebook} />
+        {ebookList?.map((ebook) => (
+          <SwiperSlide key={ebook.EbookID} tag="li">
+            <EbookCard ebook={ebook} />
           </SwiperSlide>
         ))}
       </Swiper>

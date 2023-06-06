@@ -4,7 +4,7 @@ import HeadNext from 'components/HeadNext';
 import Header from 'components/Header';
 import EbookView from 'components/EbookView';
 
-import { EbookList } from 'utils/data';
+import { GetEbookInfoBySLug } from 'services/ebook';
 
 export default function EbookSlug({
   ebook,
@@ -23,11 +23,11 @@ export const getServerSideProps = async ({
 }: GetServerSidePropsContext) => {
   const slug = params?.ebookSlug?.at(0);
 
-  const ebook = EbookList.filter((ebook) => ebook.slug == slug);
+  const ebook = await GetEbookInfoBySLug(slug ? slug : '');
 
   return {
     props: {
-      ebook: ebook[0],
+      ebook: ebook,
     },
   };
 };
