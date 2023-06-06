@@ -20,9 +20,12 @@ export default function CartView({}: CartViewProps) {
   const dispatch = useAppDispatch();
 
   const handleClickBuy = () => {
-    router.push('/payment');
+    if (cart.length != 0) {
+      router.push('/payment');
+    }
   };
 
+  
   const getTotalPrice = () => {
     return cart.reduce(
       (accumulator, item) => accumulator + item.quantity * item.price,
@@ -37,7 +40,7 @@ export default function CartView({}: CartViewProps) {
         <S.ItemsSection>
           {cart.length ? (
             cart.map((item) => (
-              <S.ItemCard>
+              <S.ItemCard key={item.id}>
                 <S.ImageWrapper>
                   <S.Image>
                     <Image src={item.image} fill alt={item.title} />
