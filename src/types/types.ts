@@ -21,3 +21,13 @@ export type EbookCart = {
   price: number;
   quantity: number;
 };
+
+export type EbooksTypeAPI = {
+  EbookID: number;
+  Title: string;
+  Slug: string;
+  Image: string;
+  Author: string;
+  Price: number;
+  Description: string;
+}
