@@ -4,7 +4,7 @@ import * as S from './styles';
 import { useAuth } from 'hooks/useAuth';
 
 import Button from '../Button';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 export default function AuthView() {
   const auth = useAuth();
