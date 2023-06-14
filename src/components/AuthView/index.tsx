@@ -33,9 +33,19 @@ export default function AuthView() {
         console.log('Erro!!');
       }
     } else {
-      console.log('Email and password must be not empty');
+      showMessage('Todos os campos são obrigatórios');
     }
   };
+
+  function showMessage(message: string) {
+    function removeMessage() {
+      setErrorMessage('');
+    }
+
+    setErrorMessage(message);
+
+    setTimeout(removeMessage, 5000);
+  }
 
   if (auth.accessToken) {
     router.push('/');
@@ -56,13 +66,15 @@ export default function AuthView() {
         value={password}
         onChange={handlePasswordInput}
       />
-      <S.ButtonSection></S.ButtonSection>
-      <Button
-        label="Fazer Login"
-        width="100"
-        onClick={handleLogin}
-        submit={true}
-      />
+      {errorMessage && <S.Error_Message>{`${errorMessage}`}</S.Error_Message>}
+      <S.ButtonSection>
+        <Button
+          label="Fazer Login"
+          width="100"
+          onClick={handleLogin}
+          submit={true}
+        />
+      </S.ButtonSection>
     </S.Wrapper>
   );
 }

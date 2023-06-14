@@ -31,6 +31,16 @@ export const Input = styled.input`
   margin: 0 0 1rem 0;
 `;
 
+export const Error_Message = styled.div`
+  font-family: Raleway, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  color: #ff2b2b;
+
+  margin: 0.3rem 0 0 0;
+`;
+
 export const ButtonSection = styled.div`
-  margin: 1.0rem 0 0 0;
+  margin: 1.8rem 0 0 0;
 `;
