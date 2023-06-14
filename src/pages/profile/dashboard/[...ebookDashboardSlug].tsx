@@ -3,8 +3,7 @@ import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 import HeadNext from 'components/HeadNext';
 import Header from 'components/Header';
 import EbookDashboardView from 'components/EbookDashboardView';
-
-import { EbookList } from 'utils/data';
+import { GetEbookInfoBySlug } from 'services/ebook';
 
 export default function EbookDashboardSlug({
   ebook,
@@ -23,11 +22,11 @@ export const getServerSideProps = async ({
 }: GetServerSidePropsContext) => {
   const slug = params?.ebookDashboardSlug?.at(0);
 
-  const ebook = EbookList.filter((ebook) => ebook.slug == slug);
+  const ebook = await GetEbookInfoBySlug(slug ? slug : '');
 
   return {
     props: {
-      ebook: ebook[0],
+      ebook: ebook,
     },
   };
 };

@@ -3,18 +3,18 @@ import * as S from './styles';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import Button from 'components/Button';
-import { Ebook } from 'types/types';
+import { EbooksTypeAPI } from 'types/types';
 import { DownloadEbookBySrc } from 'services/ebook';
 
 export type EbookDashboardViewProps = {
-  ebook: Ebook;
+  ebook: EbooksTypeAPI | null;
 };
 
 export default function EbookDashboardView({ ebook }: EbookDashboardViewProps) {
   const router = useRouter();
 
   const handleClickOnDownload = async () => {
-    const response = await DownloadEbookBySrc(ebook.slug)
+    const response = await DownloadEbookBySrc(ebook?.Slug || '')
 
     if (response?.Src) {
       router.push(response?.Src)
@@ -25,13 +25,13 @@ export default function EbookDashboardView({ ebook }: EbookDashboardViewProps) {
     <S.Wrapper>
       <S.ImageWrapper>
         <S.Image>
-          <Image src={ebook.image} fill alt={ebook.title} />
+          <Image src={ebook?.Image || ''} fill alt={ebook?.Title || ''} />
         </S.Image>
       </S.ImageWrapper>
       <S.Content>
-        <S.Title>{ebook.title}</S.Title>
-        <S.Author>{ebook.author}</S.Author>
-        <S.Description>{ebook.description}</S.Description>
+        <S.Title>{ebook?.Title}</S.Title>
+        <S.Author>{ebook?.Author}</S.Author>
+        <S.Description>{ebook?.Description}</S.Description>
       </S.Content>
       <S.CallToAction>
         <Button
