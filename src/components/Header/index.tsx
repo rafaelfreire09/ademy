@@ -36,6 +36,10 @@ export default function Header() {
     router.push('/auth');
   };
 
+  const handleClickOnSignIn = () => {
+    router.push('/signin');
+  };
+
   return (
     <S.Wrapper>
       <S.Logo onClick={handleClickOnLogo}>ADEMY</S.Logo>
@@ -63,7 +67,10 @@ export default function Header() {
           ></Button>
         </S.AuthSection>
       ) : (
-        <Button label="Login" onClick={handleClickOnLogin} />
+        <S.ButtonsSection>
+          <Button label="Login" onClick={handleClickOnLogin} />
+          <Button label="Sign In" onClick={handleClickOnSignIn} />
+        </S.ButtonsSection>
       )}
     </S.Wrapper>
   );

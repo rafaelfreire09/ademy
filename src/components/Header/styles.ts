@@ -58,3 +58,8 @@ export const CartAmount = styled.div`
 
   border-radius: 20px;
 `;
+
+export const ButtonsSection = styled.div`
+  display: flex;
+  gap: 0 20px;
+`;
