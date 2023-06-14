@@ -31,3 +31,7 @@ export type EbooksTypeAPI = {
   Price: number;
   Description: string;
 }
+
+export type DownloadEbookBySrcAPI = {
+  Src: string
+}
