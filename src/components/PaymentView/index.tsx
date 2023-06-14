@@ -4,10 +4,13 @@ import Image from 'next/image';
 import Button from 'components/Button';
 import { useAppSelector } from 'hooks/redux';
 import { formatPrice } from 'utils/general';
+import { useRouter } from 'next/navigation';
+import { PaymentEbook } from 'services/user';
 
 export type PaymentViewProps = {};
 
 export default function PaymentView({}: PaymentViewProps) {
+  const router = useRouter();
   const cart = useAppSelector((state) => state.cartItems);
 
   const getTotalPrice = () => {
@@ -15,6 +18,16 @@ export default function PaymentView({}: PaymentViewProps) {
       (accumulator, item) => accumulator + item.quantity * item.price,
       0
     );
+  };
+
+  const handleClickOnPayment = async () => {
+    try {
+      await PaymentEbook(3, cart[0].id);
+
+      router.push('/profile/dashboard');
+    } catch (error) {
+      console.log('Erro!!');
+    }
   };
 
   return (
@@ -97,6 +110,7 @@ export default function PaymentView({}: PaymentViewProps) {
               height="50"
               label="Finalizar a compra"
               colorType="green"
+              onClick={handleClickOnPayment}
             />
           </S.ButtonSection>
         </S.Resume>
