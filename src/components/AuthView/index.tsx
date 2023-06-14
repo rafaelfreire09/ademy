@@ -26,7 +26,7 @@ export default function AuthView() {
   const handleLogin = async () => {
     if (email && password) {
       try {
-        await auth.authenticate(email, password);
+        await auth.authenticateLogin(email, password);
 
         router.push('/');
       } catch (error) {
