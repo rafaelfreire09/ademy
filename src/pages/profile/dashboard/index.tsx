@@ -1,10 +1,15 @@
-import { InferGetServerSidePropsType } from 'next';
+import { GetServerSidePropsResult, InferGetServerSidePropsType } from 'next';
 
 import HeadNext from 'components/HeadNext';
 import Header from 'components/Header';
 import DashboardView from 'components/Dashboard';
 
-import { EbookList } from 'utils/data';
+import { GetEbooksPurchased } from 'services/user';
+import { EbooksTypeAPI } from 'types/types';
+
+export type Props = {
+  ebookDashboardList: EbooksTypeAPI[] | null;
+};
 
 export default function Dashboard({
   ebookDashboardList,
@@ -18,12 +23,11 @@ export default function Dashboard({
   );
 }
 
-export const getServerSideProps = async () => {
-  const getEbookList = EbookList;
-
+export const getServerSideProps = async (): Promise<
+GetServerSidePropsResult<Props>> => {
   return {
     props: {
-      ebookDashboardList: getEbookList,
+      ebookDashboardList: await GetEbooksPurchased(),
     },
   };
 };

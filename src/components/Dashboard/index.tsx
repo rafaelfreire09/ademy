@@ -2,10 +2,10 @@ import * as S from './styles';
 
 import EbookDashboardCard from 'components/EbookDashboardCard';
 
-import { Ebook } from 'types/types';
+import { EbooksTypeAPI } from 'types/types';
 
 export type DashboardViewProps = {
-  ebookDashboardList: Ebook[];
+  ebookDashboardList: EbooksTypeAPI[] | null;
 };
 
 export default function DashboardView({
@@ -15,8 +15,17 @@ export default function DashboardView({
     <S.Wrapper>
       <S.TitleSection>Ebooks Adquiridos</S.TitleSection>
       <S.PurchasedContent>
-        {ebookDashboardList.map((ebook) => (
-          <EbookDashboardCard {...ebook} key={ebook.id} />
+        {ebookDashboardList?.map((ebook) => (
+          <EbookDashboardCard
+            key={ebook.EbookID}
+            id={ebook.EbookID}
+            title={ebook.Title}
+            image={ebook.Image}
+            author={ebook.Author}
+            price={ebook.Price}
+            description={ebook.Description}
+            slug={ebook.Slug}
+          />
         ))}
       </S.PurchasedContent>
     </S.Wrapper>
