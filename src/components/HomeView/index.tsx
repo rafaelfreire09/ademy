@@ -18,19 +18,21 @@ export default function HomeView({ ebookList }: HomeViewProps) {
     <S.Wrapper>
       <S.TitleSection>Destaques</S.TitleSection>
 
-      <Swiper
-        wrapperTag="ul"
-        modules={[Navigation]}
-        slidesPerView={5}
-        spaceBetween={60}
-        navigation={true}
-      >
-        {ebookList?.map((ebook) => (
-          <SwiperSlide key={ebook.EbookID} tag="li">
-            <EbookCard ebook={ebook} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <S.SwipperSection>
+        <Swiper
+          wrapperTag="ul"
+          modules={[Navigation]}
+          slidesPerView={5}
+          spaceBetween={60}
+          navigation={true}
+        >
+          {ebookList?.map((ebook) => (
+            <SwiperSlide key={ebook.EbookID} tag="li">
+              <EbookCard ebook={ebook} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </S.SwipperSection>
     </S.Wrapper>
   );
 }

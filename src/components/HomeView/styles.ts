@@ -2,8 +2,6 @@ import styled from 'styled-components';
 import mainColors from 'styles/mainColors';
 
 export const Wrapper = styled.div`
-  padding: 0 100px;
-
   .swiper {
     padding: 0 50px;
 
@@ -18,8 +16,12 @@ export const Wrapper = styled.div`
 `;
 
 export const TitleSection = styled.div`
-  margin: 25px 0;
+  padding: 50px 0 50px 250px;
 
-  font-size: 1.7rem;
+  font-size: 1.9rem;
   font-weight: 700;
+`;
+
+export const SwipperSection = styled.div`
+  padding: 30px 100px;
 `;
