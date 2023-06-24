@@ -11,23 +11,12 @@ export type Props = {
   ebookDashboardList: EbooksTypeAPI[] | null;
 };
 
-export default function Dashboard({
-  ebookDashboardList,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function Dashboard() {
   return (
     <>
       <HeadNext />
       <Header />
-      <DashboardView ebookDashboardList={ebookDashboardList} />
+      <DashboardView />
     </>
   );
 }
-
-export const getServerSideProps = async (): Promise<
-GetServerSidePropsResult<Props>> => {
-  return {
-    props: {
-      ebookDashboardList: await GetEbooksPurchased(),
-    },
-  };
-};

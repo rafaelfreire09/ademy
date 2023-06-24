@@ -1,16 +1,31 @@
+import { useAppSelector } from 'hooks/redux';
 import * as S from './styles';
 
 import EbookDashboardCard from 'components/EbookDashboardCard';
+import { useEffect, useState } from 'react';
+import { GetEbooksPurchased } from 'services/user';
 
 import { EbooksTypeAPI } from 'types/types';
 
-export type DashboardViewProps = {
-  ebookDashboardList: EbooksTypeAPI[] | null;
-};
+export type DashboardViewProps = {};
 
-export default function DashboardView({
-  ebookDashboardList,
-}: DashboardViewProps) {
+export default function DashboardView() {
+  const [ebookDashboardList, setEbookDashboardList] = useState<
+    EbooksTypeAPI[] | null
+  >([]);
+
+  const user = useAppSelector((state) => state.userItems);
+
+  useEffect(() => {
+    const getEbooks = async () => {
+      const list = await GetEbooksPurchased(user.userId);
+
+      setEbookDashboardList(list);
+    };
+
+    getEbooks();
+  }, []);
+
   return (
     <S.Wrapper>
       <S.TitleSection>Ebooks Adquiridos</S.TitleSection>
