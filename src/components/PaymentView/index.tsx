@@ -1,19 +1,22 @@
 import * as S from './styles';
-
-import Image from 'next/image';
-import Button from 'components/Button';
-import { useAppDispatch, useAppSelector } from 'hooks/redux';
-import { formatPrice } from 'utils/general';
 import { useRouter } from 'next/navigation';
-import { PaymentEbook } from 'services/user';
+import Image from 'next/image';
+
+import { useAppDispatch, useAppSelector } from 'hooks/redux';
 import { clearCart } from 'redux/cartSlice';
+
+import { getLocalStorage } from 'utils/localStorage';
+
+import { formatPrice } from 'utils/general';
+import { PaymentEbook } from 'services/user';
+
+import Button from 'components/Button';
 
 export type PaymentViewProps = {};
 
 export default function PaymentView({}: PaymentViewProps) {
   const router = useRouter();
   const cart = useAppSelector((state) => state.cartItems);
-  const user = useAppSelector((state) => state.userItems);
   const dispatch = useAppDispatch();
 
   const getTotalPrice = () => {
@@ -25,7 +28,7 @@ export default function PaymentView({}: PaymentViewProps) {
 
   const handleClickOnPayment = async () => {
     try {
-      await PaymentEbook(user.userId, cart[0].id);
+      await PaymentEbook(getLocalStorage('userId'), cart[0].id);
 
       dispatch(clearCart());
 

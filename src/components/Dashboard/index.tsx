@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { GetEbooksPurchased } from 'services/user';
 
 import { EbooksTypeAPI } from 'types/types';
+import { getLocalStorage } from 'utils/localStorage';
 
 export type DashboardViewProps = {};
 
@@ -14,11 +15,9 @@ export default function DashboardView() {
     EbooksTypeAPI[] | null
   >([]);
 
-  const user = useAppSelector((state) => state.userItems);
-
   useEffect(() => {
     const getEbooks = async () => {
-      const list = await GetEbooksPurchased(user.userId);
+      const list = await GetEbooksPurchased(getLocalStorage('userId'));
 
       setEbookDashboardList(list);
     };
