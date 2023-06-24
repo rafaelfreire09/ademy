@@ -2,16 +2,19 @@ import * as S from './styles';
 
 import Image from 'next/image';
 import Button from 'components/Button';
-import { useAppSelector } from 'hooks/redux';
+import { useAppDispatch, useAppSelector } from 'hooks/redux';
 import { formatPrice } from 'utils/general';
 import { useRouter } from 'next/navigation';
 import { PaymentEbook } from 'services/user';
+import { clearCart } from 'redux/cartSlice';
 
 export type PaymentViewProps = {};
 
 export default function PaymentView({}: PaymentViewProps) {
   const router = useRouter();
   const cart = useAppSelector((state) => state.cartItems);
+  const user = useAppSelector((state) => state.userItems);
+  const dispatch = useAppDispatch();
 
   const getTotalPrice = () => {
     return cart.reduce(
@@ -22,7 +25,9 @@ export default function PaymentView({}: PaymentViewProps) {
 
   const handleClickOnPayment = async () => {
     try {
-      await PaymentEbook(3, cart[0].id);
+      await PaymentEbook(user.userId, cart[0].id);
+
+      dispatch(clearCart());
 
       router.push('/profile/dashboard');
     } catch (error) {
