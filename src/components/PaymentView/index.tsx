@@ -114,7 +114,7 @@ export default function PaymentView({}: PaymentViewProps) {
           </S.TotalSection>
           <S.ButtonSection>
             <Button
-              width="170"
+              width="180"
               height="50"
               label="Finalizar a compra"
               colorType="green"

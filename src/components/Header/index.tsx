@@ -64,12 +64,13 @@ export default function Header() {
             label="Logout"
             onClick={handleLogout}
             colorType="red"
+            width='80'
           ></Button>
         </S.AuthSection>
       ) : (
         <S.ButtonsSection>
           <Button label="Login" onClick={handleClickOnLogin} />
-          <Button label="Sign In" onClick={handleClickOnSignIn} />
+          <Button label="Sign In" onClick={handleClickOnSignIn} width='80'/>
         </S.ButtonsSection>
       )}
     </S.Wrapper>

@@ -96,7 +96,7 @@ export default function AuthView() {
       <S.ButtonSection>
         <Button
           label="Criar conta"
-          width="100"
+          width="120"
           onClick={handleSignIn}
           submit={true}
         />

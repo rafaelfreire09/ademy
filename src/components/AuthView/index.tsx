@@ -70,7 +70,7 @@ export default function AuthView() {
       <S.ButtonSection>
         <Button
           label="Fazer Login"
-          width="100"
+          width="120"
           onClick={handleLogin}
           submit={true}
         />

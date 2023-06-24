@@ -75,7 +75,7 @@ export default function CartView({}: CartViewProps) {
                 <S.SubTotalItem>
                   <S.Price>{formatPrice(item.price * item.quantity)}</S.Price>
                   <Button
-                    width="85"
+                    width="95"
                     height="50"
                     label="Remover"
                     colorType="red"
@@ -95,7 +95,7 @@ export default function CartView({}: CartViewProps) {
           <S.TotalLabel>Total:</S.TotalLabel>
           <S.TotalPrice>{formatPrice(getTotalPrice())}</S.TotalPrice>
           <Button
-            width="85"
+            width="90"
             height="50"
             label="Comprar"
             colorType="green"

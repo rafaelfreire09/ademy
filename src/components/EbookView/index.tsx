@@ -49,7 +49,7 @@ export default function EbookView({ ebook }: EbookViewProps) {
       <S.CallToAction>
         <S.Price>{formatPrice(ebook?.Price || 0)}</S.Price>
         <Button
-          width="85"
+          width="90"
           height="50"
           label="Comprar"
           colorType="green"

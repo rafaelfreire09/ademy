@@ -9,6 +9,8 @@ const GlobalStyles = createGlobalStyle`
     user-select: none;
     scroll-behavior: smooth;
     box-sizing: border-box;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   
   html, body, #__next {
