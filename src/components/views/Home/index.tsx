@@ -1,11 +1,11 @@
 import * as S from './styles';
 
-import EbookCard from 'components/EbookCard';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
+
+import EbookCard from 'components/layout/EbookCard';
 
 import { EbooksTypeAPI } from 'types/types';
 

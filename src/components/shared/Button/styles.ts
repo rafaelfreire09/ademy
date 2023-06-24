@@ -12,8 +12,10 @@ const colorsType = {
     background-color: ${mainColors.white.normal};
     border: 1px solid ${mainColors.others.borderDark};
 
-    span {
+    span,
+    a {
       color: ${mainColors.black.normal};
+      text-decoration: none;
     }
 
     &:hover {
@@ -24,8 +26,10 @@ const colorsType = {
     background-color: ${mainColors.error.normal};
     border: 1px solid ${mainColors.error.normal};
 
-    span {
+    span,
+    a {
       color: ${mainColors.white.normal};
+      text-decoration: none;
     }
 
     &:hover {
@@ -36,8 +40,10 @@ const colorsType = {
     background-color: ${mainColors.success.normal};
     border: 1px solid ${mainColors.success.normal};
 
-    span {
+    span,
+    a {
       color: ${mainColors.white.normal};
+      text-decoration: none;
     }
 
     &:hover {
@@ -61,7 +67,8 @@ export const Wrapper = styled.button<Props>`
   font-size: 15px;
   font-weight: 600;
 
-  span {
+  span,
+  a {
     text-decoration: none;
   }
 

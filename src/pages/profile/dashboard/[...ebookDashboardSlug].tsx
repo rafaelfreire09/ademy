@@ -1,9 +1,9 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 
-import HeadNext from 'components/HeadNext';
-import Header from 'components/Header';
-import EbookDashboardView from 'components/EbookDashboardView';
+import EbookDashboardView from 'components/views/EbookDashboard';
 import { GetEbookInfoBySlug } from 'services/ebook';
+import HeadNext from 'components/infra/HeadNext';
+import Header from 'components/layout/Header';
 
 export default function EbookDashboardSlug({
   ebook,

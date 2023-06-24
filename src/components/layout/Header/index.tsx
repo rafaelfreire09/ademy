@@ -5,8 +5,8 @@ import Image from 'next/image';
 
 import { useAuth } from 'hooks/useAuth';
 
-import Button from '../Button';
 import { useAppSelector } from 'hooks/redux';
+import Button from 'components/shared/Button';
 
 export default function Header() {
   const auth = useAuth();
@@ -64,13 +64,13 @@ export default function Header() {
             label="Logout"
             onClick={handleLogout}
             colorType="red"
-            width='80'
+            width="80"
           ></Button>
         </S.AuthSection>
       ) : (
         <S.ButtonsSection>
           <Button label="Login" onClick={handleClickOnLogin} />
-          <Button label="Sign In" onClick={handleClickOnSignIn} width='80'/>
+          <Button label="Sign In" onClick={handleClickOnSignIn} width="80" />
         </S.ButtonsSection>
       )}
     </S.Wrapper>

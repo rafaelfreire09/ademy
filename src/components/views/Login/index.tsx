@@ -1,12 +1,13 @@
-import { ChangeEvent, useState } from 'react';
 import * as S from './styles';
+
+import { ChangeEvent, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 import { useAuth } from 'hooks/useAuth';
 
-import Button from '../Button';
-import { useRouter } from 'next/navigation';
+import Button from 'components/shared/Button';
 
-export default function AuthView() {
+export default function Login() {
   const auth = useAuth();
   const router = useRouter();
 

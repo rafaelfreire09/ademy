@@ -1,15 +1,18 @@
 import * as S from './styles';
 
 import Image from 'next/image';
-import Button from 'components/Button';
-import { useAppDispatch, useAppSelector } from 'hooks/redux';
 import { useRouter } from 'next/navigation';
-import { formatPrice } from 'utils/general';
+
+import { useAppDispatch, useAppSelector } from 'hooks/redux';
 import {
   decrementQuantity,
   incrementQuantity,
   removeFromCart,
 } from 'redux/cartSlice';
+
+import Button from 'components/shared/Button';
+
+import { formatPrice } from 'utils/general';
 
 export type CartViewProps = {};
 
@@ -25,7 +28,6 @@ export default function CartView({}: CartViewProps) {
     }
   };
 
-  
   const getTotalPrice = () => {
     return cart.reduce(
       (accumulator, item) => accumulator + item.quantity * item.price,

@@ -2,9 +2,11 @@ import * as S from './styles';
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import Button from 'components/Button';
-import { EbooksTypeAPI } from 'types/types';
+
+import Button from 'components/shared/Button';
+
 import { DownloadEbookBySrc } from 'services/ebook';
+import { EbooksTypeAPI } from 'types/types';
 
 export type EbookDashboardViewProps = {
   ebook: EbooksTypeAPI | null;
@@ -14,10 +16,10 @@ export default function EbookDashboardView({ ebook }: EbookDashboardViewProps) {
   const router = useRouter();
 
   const handleClickOnDownload = async () => {
-    const response = await DownloadEbookBySrc(ebook?.Slug || '')
+    const response = await DownloadEbookBySrc(ebook?.Slug || '');
 
     if (response?.Src) {
-      router.push(response?.Src)
+      router.push(response?.Src);
     }
   };
 

@@ -3,7 +3,7 @@ import * as S from './styles';
 
 import { useAuth } from 'hooks/useAuth';
 
-import Button from '../Button';
+import Button from '../../shared/Button';
 import { useRouter } from 'next/navigation';
 
 export default function AuthView() {

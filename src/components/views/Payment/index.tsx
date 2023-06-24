@@ -1,4 +1,5 @@
 import * as S from './styles';
+
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
@@ -10,7 +11,7 @@ import { getLocalStorage } from 'utils/localStorage';
 import { formatPrice } from 'utils/general';
 import { PaymentEbook } from 'services/user';
 
-import Button from 'components/Button';
+import Button from 'components/shared/Button';
 
 export type PaymentViewProps = {};
 

@@ -1,8 +1,8 @@
 import { GetServerSidePropsResult, InferGetServerSidePropsType } from 'next';
 
-import HeadNext from 'components/HeadNext';
-import Header from 'components/Header';
-import HomeView from 'components/HomeView';
+import HeadNext from 'components/infra/HeadNext';
+import Header from 'components/layout/Header';
+import HomeView from 'components/views/Home';
 
 import { GetFeaturedEbooks } from 'services/ebook';
 import { EbooksTypeAPI } from 'types/types';

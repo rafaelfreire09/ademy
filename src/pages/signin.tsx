@@ -1,6 +1,6 @@
-import Header from 'components/Header';
-import SignInView from 'components/SignInView';
-import HeadNext from 'components/HeadNext';
+import HeadNext from 'components/infra/HeadNext';
+import Header from 'components/layout/Header';
+import SignInView from 'components/views/SignIn';
 
 export default function SignIn() {
   return (

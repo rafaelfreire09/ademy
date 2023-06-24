@@ -1,6 +1,6 @@
-import Header from 'components/Header';
-import AuthView from 'components/AuthView';
-import HeadNext from 'components/HeadNext';
+import HeadNext from "components/infra/HeadNext";
+import Header from "components/layout/Header";
+import AuthView from "components/views/SignIn";
 
 export default function Auth() {
   return (

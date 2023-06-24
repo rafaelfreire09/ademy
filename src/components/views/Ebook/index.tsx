@@ -1,14 +1,15 @@
 import * as S from './styles';
+
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 import { useAppDispatch } from 'hooks/redux';
-
-import Button from 'components/Button';
-
-import { EbooksTypeAPI } from 'types/types';
 import { addToCart } from 'redux/cartSlice';
+
+import Button from 'components/shared/Button';
+
 import { formatPrice } from 'utils/general';
+import { EbooksTypeAPI } from 'types/types';
 
 export type EbookViewProps = {
   ebook: EbooksTypeAPI | null;
