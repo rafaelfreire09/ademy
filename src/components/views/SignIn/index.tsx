@@ -34,17 +34,19 @@ export default function SignInView() {
   };
 
   const handleSignIn = async () => {
-    if (password != confirmPassword) {
-      showMessage('As senhas digitadas devem ser iguais.');
-    }
-
+    // Checks if all inputs are filled
     if (name && email && password && confirmPassword) {
-      try {
-        await auth.authenticateSignIn(name, email, password);
+      // Check if the passwords are the same
+      if (password == confirmPassword) {
+        try {
+          await auth.authenticateSignIn(name, email, password);
 
-        router.push('/');
-      } catch (error) {
-        console.log('Erro!!');
+          router.push('/');
+        } catch (error) {
+          console.log('Erro!!');
+        }
+      } else {
+        showMessage('As senhas digitadas devem ser iguais.');
       }
     } else {
       showMessage('Todos os campos são obrigatórios');
