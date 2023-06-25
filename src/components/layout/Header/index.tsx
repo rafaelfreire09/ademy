@@ -61,16 +61,27 @@ export default function Header() {
             />
           </S.Cart>
           <Button
-            label="Logout"
+            label="Sair"
             onClick={handleLogout}
             colorType="red"
-            width="80"
+            width="50"
+            fontSize="12"
           ></Button>
         </S.AuthSection>
       ) : (
         <S.ButtonsSection>
-          <Button label="Login" onClick={handleClickOnLogin} />
-          <Button label="Sign In" onClick={handleClickOnSignIn} width="80" />
+          <Button
+            label="Fazer login"
+            onClick={handleClickOnLogin}
+            width="100"
+            fontSize="12"
+          />
+          <Button
+            label="Cadastre-se"
+            onClick={handleClickOnSignIn}
+            width="110"
+            fontSize="12"
+          />
         </S.ButtonsSection>
       )}
     </S.Wrapper>

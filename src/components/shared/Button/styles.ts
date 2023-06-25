@@ -5,6 +5,7 @@ type Props = {
   width: string;
   height: string;
   colorType: ButtonSize;
+  fontSize: string;
 };
 
 const colorsType = {
@@ -70,6 +71,7 @@ export const Wrapper = styled.button<Props>`
   span,
   a {
     text-decoration: none;
+    font-size: ${(props) => props.fontSize}px;
   }
 
   &:not(:disabled) {

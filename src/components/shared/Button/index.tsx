@@ -11,6 +11,7 @@ export type ButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
   colorType?: S.ButtonSize;
   onClick?: VoidFunction;
   iconSrc?: string;
+  fontSize?: string;
 };
 
 export default function Button({
@@ -22,6 +23,7 @@ export default function Button({
   href,
   onClick,
   iconSrc,
+  fontSize = '15',
   ...props
 }: ButtonProps) {
   const handleClick = () => {
@@ -32,8 +34,9 @@ export default function Button({
     <S.Wrapper
       width={width}
       height={height}
-      onClick={handleClick}
       colorType={colorType}
+      fontSize={fontSize}
+      onClick={handleClick}
     >
       {!iconSrc ? (
         <span>{label}</span>
