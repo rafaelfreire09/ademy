@@ -7,7 +7,7 @@ import { useAuth } from 'hooks/useAuth';
 
 import Button from 'components/shared/Button';
 
-export default function Login() {
+export default function LogInView() {
   const auth = useAuth();
   const router = useRouter();
 
@@ -71,7 +71,7 @@ export default function Login() {
       <S.ButtonSection>
         <Button
           label="Fazer Login"
-          width="120"
+          width="130"
           onClick={handleLogin}
           submit={true}
         />

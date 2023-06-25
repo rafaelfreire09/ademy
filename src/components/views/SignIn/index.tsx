@@ -6,7 +6,7 @@ import { useAuth } from 'hooks/useAuth';
 import Button from '../../shared/Button';
 import { useRouter } from 'next/navigation';
 
-export default function AuthView() {
+export default function SignInView() {
   const auth = useAuth();
   const router = useRouter();
 

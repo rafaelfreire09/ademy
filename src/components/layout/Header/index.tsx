@@ -33,7 +33,7 @@ export default function Header() {
   };
 
   const handleClickOnLogin = () => {
-    router.push('/auth');
+    router.push('/login');
   };
 
   const handleClickOnSignIn = () => {
